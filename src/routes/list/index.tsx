@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { superTool } from '~/utils';
 import { paths } from '../routes.config';
 import Codebox from '~/components/SuperCodeInput';
@@ -8,7 +8,14 @@ const List = () => {
   return (
     <div>
       <div>{state}</div>
-      <Codebox onChange={(v) => setstate(v)}>111</Codebox>
+      <Codebox
+        validator={(input, index) => {
+          return /\d/.test(input);
+        }}
+        onChange={(codeArray) => {
+          setstate(codeArray);
+        }}
+      />
     </div>
   );
 };
