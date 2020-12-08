@@ -1,0 +1,42 @@
+.codeboxContainer {
+  display: inline-block;
+  text-align: center;
+  .codeboxFieldWrap {
+    display: inline-flex;
+    align-items: center;
+    margin: 0.4rem;
+    width: 2.8125rem;
+    height: 2.8125rem;
+    line-height: 2.8125rem;
+    &.lineWrap {
+      margin-right: 2.8125rem;
+    }
+    input {
+      width: inherit;
+      height: inherit;
+      line-height: inherit;
+      font-size: 1.4rem;
+      font-weight: bold;
+      text-align: center;
+      vertical-align: baseline;
+      outline: none;
+      color: #494949;
+      border: 1px solid #afb0b2;
+      border-radius: 4px;
+      background: #ffffff;
+    }
+    .line {
+      display: inline-block;
+      height: 2.8125rem;
+      margin-left: 1.2rem;
+    }
+  }
+}
+/* iphone SE */
+@media (max-width: 320px) {
+  .codeboxContainer .codeboxFieldWrap {
+    margin: 0.4rem;
+    width: 2rem;
+    height: 2rem;
+  }
+}

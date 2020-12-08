@@ -1,0 +1,107 @@
+{
+  "name": "a7-browser-web-site-manager",
+  "version": "0.0.1",
+  "description": "超览网页端脚手架",
+  "author": "ZiXun FED",
+  "license": "MIT",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "https://gitee.com/a1-browser/A1-browser-plugins-ui.git"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "src/**/*.(ts|tsx)": [
+      "prettier --write",
+      "eslint --fix"
+    ],
+    "src/**/*.(scss|css|less)": [
+      "prettier --write",
+      "stylelint --fix"
+    ]
+  },
+  "scripts": {
+    "clean:dist": "rimraf ./dist",
+    "build:anal": "npm run clean:dist && npm run build -- --anal=1",
+    "cp": "copyfiles -e \"src/**/*.ts\" -u 1 src/favicon.ico dist",
+    "prebuild": "npm run clean:dist && npm run cp",
+    "build": "node ./scripts/build.js --env=production",
+    "build:test": "npm run prebuild &&node ./scripts/build.js --env=test",
+    "local": "node ./scripts/development.js --isdevelop=1 --env=local --log=1",
+    "sim": "node ./scripts/development.js --isdevelop=1 --env=sim --log=1"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.10.2",
+    "@babel/plugin-proposal-class-properties": "^7.2.3",
+    "@babel/plugin-proposal-decorators": "^7.10.1",
+    "@babel/plugin-proposal-object-rest-spread": "^7.2.0",
+    "@babel/plugin-transform-runtime": "^7.4.3",
+    "@babel/preset-env": "^7.10.2",
+    "@babel/preset-react": "^7.10.1",
+    "@babel/preset-typescript": "^7.10.1",
+    "@types/chrome": "^0.0.114",
+    "@types/moment": "^2.13.0",
+    "@types/react": "^16.9.14",
+    "@types/react-dom": "^16.9.4",
+    "@typescript-eslint/eslint-plugin": "^3.1.0",
+    "@typescript-eslint/parser": "^3.1.0",
+    "babel-loader": "^8.1.0",
+    "babel-plugin-import": "^1.13.0",
+    "compression-webpack-plugin": "^1.1.11",
+    "copy-webpack-plugin": "^4.6.0",
+    "copyfiles": "^2.1.0",
+    "css-loader": "^3.5.3",
+    "eslint": "^5.3.0",
+    "eslint-config-alloy": "^3.7.2",
+    "eslint-plugin-react": "^7.20.0",
+    "file-loader": "^1.1.11",
+    "fs-extra": "^9.0.1",
+    "glob": "^7.1.2",
+    "html-webpack-plugin": "4.0.0-beta.11",
+    "husky": "^4.3.0",
+    "json-loader": "^0.5.7",
+    "less": "^3.9.0",
+    "less-loader": "^6.1.0",
+    "lint-staged": "^10.2.7",
+    "mini-css-extract-plugin": "^0.10.0",
+    "optimize-css-assets-webpack-plugin": "^5.0.3",
+    "postcss-safe-parser": "^4.0.2",
+    "prettier": "^2.0.5",
+    "react-dev-utils": "^10.2.1",
+    "react-infinite-scroller": "^1.2.4",
+    "rimraf": "^2.6.2",
+    "sass": "^1.26.11",
+    "sass-loader": "^8.0.2",
+    "speed-measure-webpack-plugin": "^1.3.3",
+    "style-loader": "^1.2.1",
+    "stylelint": "^10.0.1",
+    "stylelint-config-standard": "^18.3.0",
+    "terser-webpack-plugin": "^4.1.0",
+    "thread-loader": "^3.0.0",
+    "typescript": "^3.9.3",
+    "url-loader": "^1.1.0",
+    "webpack": "^4.43.0",
+    "webpack-bundle-analyzer": "^3.0.3",
+    "webpack-cli": "^3.3.11",
+    "webpack-dev-server": "^3.11.0",
+    "webpack-parallel-uglify-plugin": "^1.1.2"
+  },
+  "dependencies": {
+    "@ant-design/icons": "^4.2.2",
+    "antd": "^4.3.1",
+    "axios": "^0.19.2",
+    "lodash": "^4.17.20",
+    "mobx": "^5.15.4",
+    "mobx-react": "^6.2.2",
+    "moment": "^2.26.0",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
+    "react-loadable": "^5.5.0",
+    "react-router": "^5.2.0",
+    "react-router-dom": "^5.2.0"
+  }
+}

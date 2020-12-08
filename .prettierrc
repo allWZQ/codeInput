@@ -1,0 +1,7 @@
+{
+  "eslintIntegration": true,
+  "singleQuote": true,
+  "Semicolons": true,
+  "tabWidth": 2,
+  "trailingComma":"es5"
+}
