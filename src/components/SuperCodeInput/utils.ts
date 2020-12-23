@@ -27,6 +27,22 @@ export const removeDefaultBehavior = (event) => {
   }
   return false; //用于处理使用对象属性注册的处理程序
 };
+// 防抖
+export const deBounce = (
+  fn: (...args: any[]) => any,
+  interval: number
+): ((...args: any[]) => any) => {
+  let timer = null;
+  return (e) => {
+    if (timer) {
+      clearTimeout(timer);
+      timer = null;
+    }
+    timer = setTimeout(() => {
+      fn(e);
+    }, interval);
+  };
+};
 //判断是否是函数
 export const isFunction = (any): boolean => {
   return typeof any === 'function';

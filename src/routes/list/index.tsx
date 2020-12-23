@@ -1,22 +1,25 @@
-import React, { useEffect, useState } from 'react';
-import { superTool } from '~/utils';
-import { paths } from '../routes.config';
-import Codebox from '~/components/SuperCodeInput';
+import { Carousel } from 'antd';
+import React, { useEffect, useRef, useState } from 'react';
+import { axiosHttp } from './axios';
+import CodePhone from './codePhone';
+import Happly from './happly';
+import VirtualList from './virtualList';
 
 const List = () => {
-  const [state, setstate] = useState<string[]>([]);
+  const carousel = useRef<Carousel>();
+  const [data, setdata] = useState([]);
+  useEffect(() => {
+    axiosHttp.getList().then((res) => {
+      setdata(res?.data);
+    });
+    axiosHttp.getUserInfo();
+  }, []);
   return (
-    <div>
-      <div>{state}</div>
-      <Codebox
-        validator={(input, index) => {
-          return /\d/.test(input);
-        }}
-        onChange={(codeArray) => {
-          setstate(codeArray);
-        }}
-      />
-    </div>
+    <Carousel ref={carousel} dots={false}>
+      <CodePhone />
+      <VirtualList data={data} />
+      <Happly />
+    </Carousel>
   );
 };
 

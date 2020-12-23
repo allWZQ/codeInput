@@ -12,6 +12,7 @@ import { observer, Provider } from 'mobx-react';
 import { GlobalStores } from '../../stores/index';
 import { RouteHome } from './home/index';
 import { observable } from 'mobx';
+import SnowStorm from 'react-snowstorm';
 interface IProps {
   name: string;
 }
@@ -36,19 +37,7 @@ export default class Index extends Component<IProps> {
     const img1 = require('./images/xshell.png');
     return (
       <div className={style.divBox}>
-        {/* {this.props.name},{mode} */}
-        <div>
-          {/* <Button
-            onClick={() => {
-              this.changeBtNText();
-            }}
-            type="primary"
-          >
-            {this.btnText}
-          </Button> */}
-        </div>
-        {/* <img src={img1} /> */}
-        {/* <Foo /> */}
+        <SnowStorm />
         <RouteHome />
       </div>
     );

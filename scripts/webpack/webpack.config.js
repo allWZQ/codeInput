@@ -226,6 +226,7 @@ module.exports = (mode, hot) => {
               include: dirs.src,
               exclude: /node_modules/,
             },
+            { test: /\.mp3$/, use: 'file-loader' },
             {
               test: /\.(png|jpe?g|gif|svg)(\?.*)?$/,
               use: [

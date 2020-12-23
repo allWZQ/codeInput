@@ -10,41 +10,23 @@ export const http = axios.create({
 });
 
 http.interceptors.request.use(
-  async (config) => {
-    // 增加固定请求参数
-    let data = config.data;
-    const commonParam = {
-      user_id: '1111',
-      company_id: '2222',
-    };
+  (config) => {
+    console.warn('--- Http request start ---');
+    console.log(config.method, config.url);
+    console.log(config.data || config.params);
+    console.warn('--- Http request end---');
 
-    data = {
-      ...data,
-      ...commonParam,
-    };
-    Logs.line('Http request');
-    Logs.log(config.url);
-    Logs.log(JSON.stringify(data));
-
-    config.data = {
-      data: data,
-      user_id: commonParam.user_id,
-    };
-    config.headers['content-type'] = 'application/json;charset=utf-8';
-    // 增加请求头
-    config.headers['super-version'] = '1.0.0.0';
-    // langStore里面会在window里面挂一个superLanguage的变量
-    config.headers['super-lang'] = 'zh-CN';
     return config;
   },
-  (err) => {
-    return Promise.reject(err);
+  (error) => {
+    console.error(error);
   }
 );
 
 http.interceptors.response.use(
   (response) => {
-    return response.data.data;
+    console.log(response);
+    return response.data;
   },
   (error) => {
     // 拦截错误

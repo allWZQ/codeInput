@@ -11,7 +11,7 @@ const {
 } = require('react-dev-utils/WebpackDevServerUtils');
 const chalk = require('react-dev-utils/chalk');
 
-const DEFAULT_PORT = PORT;
+const DEFAULT_PORT = 9000;
 const HOST = '0.0.0.0';
 try {
   const devServerConfigs = {
