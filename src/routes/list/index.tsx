@@ -9,10 +9,10 @@ const List = () => {
   const carousel = useRef<Carousel>();
   const [data, setdata] = useState([]);
   useEffect(() => {
-    axiosHttp.getList().then((res) => {
-      setdata(res?.data);
-    });
-    axiosHttp.getUserInfo();
+    // axiosHttp.getList().then((res) => {
+    //   setdata(res?.data);
+    // });
+    // axiosHttp.getUserInfo();
   }, []);
   return (
     <Carousel ref={carousel} dots={false}>
